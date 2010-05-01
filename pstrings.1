@@ -1,0 +1,65 @@
+.TH PSTRINGS "1" "April 2010" "Firstfloor Electronix" "Hacks"
+.SH NAME
+pstrings \- dump strings from running processes
+.SH SYNOPSIS
+pstrings options... pid ...\n");
+.SH DESCRIPTION
+pstrings displays printable strings from the memory of running processes specified by pid(s).
+By default only writable and non executable areas are dumped.
+
+.SH OPTIONS
+.BR -nMINLENGTH
+.br  
+Only display strings of MINLENGTH and longer (default 4)
+.PP
+
+.BR -r
+.br
+Include read-only mappings (conflicts with -a)
+.PP
+
+.BR -x
+.br
+Include executable mappings (conflicts with -a)
+.PP
+.BR -a
+.br
+Include all mappings (conflicts with -r/-x).
+.PP
+.BR -o
+.br
+Prefix each string with address in program.
+.PP
+.BR -p
+.br
+Prefix each string with pid.
+.PP
+.BR -m
+.br
+Prefix each string with mapping name.
+.PP
+.BR -fPERCENT
+.br
+Only output strings with at least 
+.I PERCENT 
+alpha-numeric characters.
+.PP
+.BR -lLOCALE
+.br
+Use 
+.I LOCALE
+to determine what a printable string is.
+
+.SH NOTES
+When the process is already debugged it cannot be dumped.
+
+The process is stopped during the whole dump process. This can be arbitarily
+long depending on the speed of the pstrings output device and the memory size of the process.
+
+What a printable string is, is decided by using isprint in the POSIX C locale by default,
+unless you use the -l option. The environment locale is ignored.
+
+There is no support for wide character strings.
+.SH SEE ALSO
+.BR strings(1),
+.BR gdb(1)
