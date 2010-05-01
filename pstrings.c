@@ -215,7 +215,7 @@ void usage(void)
 	"-p	      prefix each string with pid\n"
 	"-m           prefix each string with mapping name\n"
 	"-fPERCENT    only output strings with at least PERCENT alpha-numeric characters\n"
-	"-lLOCALE     use LOCALE to decide for strings\n");
+	"-lLOCALE     use LOCALE to decide for printable strings (only 8bit)\n");
 	exit(1);
 }
 
