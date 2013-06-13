@@ -3,7 +3,12 @@
 
 pstrings is a strings program for Linux processes. You specify the pid, and it dumps all the printable strings for the processes' address space. This can be useful to get data out of uncooperative programs.
 
-Usage:
+To build:
+
+	make 
+	sudo make install       (to /usr/local/bin, overwrite with PREFIX=....) 
+
+To use:
 
 	pstrings $(pidof process-name)
 	Options:
